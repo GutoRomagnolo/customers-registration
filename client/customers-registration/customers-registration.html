@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <title>Programação para a Web</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="customers-registration.css" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="icon" type="image/x-icon" href="./../assets/document-icon.svg">
+  </head>
+
+  <body>
+    <header>
+      <nav class="header-navigation">
+        <a class="customers-nav" href="./customers-registration.html">
+          <div>CADASTRO DE CLIENTES</div>
+        </a>
+        <a class="customers-nav" href="./../customers-list/customers-list.html">
+          <div>LISTA DE CLIENTES</div>
+        </a>
+      </nav>
+    </header>
+    <div class="main-container" id="main-container">
+      <form
+        id="register-form"
+        class="register-form"
+        onsubmit="submitRegisterForm(event)"
+      >
+        <div class="form-header">
+          <h3>CADASTRO DE CLIENTES</h3>
+        </div>
+        <div class="form-content">
+          <div class="personal-informations-container">
+            <div class="personal-informations-header">
+              <label>INFORMAÇÕES PESSOAIS</label>
+              <hr class="horizontal-line">
+            </div>
+            <div class="standard-input-container">
+              <label for="student-name-input">
+                <span>NOME</span>
+              </label>
+              <div class="input-icon-container">
+                <img
+                  class="standard-input-icon"
+                  src="./../assets/profile-icon.svg"
+                  alt="Nome do cliente"
+                >
+                <input
+                  id="student-name-input"
+                  name="student-name"
+                  type="text"
+                  placeholder="Digite o nome"
+                  class="standard-input student-name"
+                  required
+                >  
+              </div>
+            </div>
+            <div class="standard-input-container multiple-rows-container">
+              <div class="multiple-rows-input">
+                <label for="student-identifier-input">
+                  <span>RG</span>
+                </label>
+                <div class="input-icon-container">
+                  <img
+                    class="standard-input-icon"
+                    src="./../assets/document-icon.svg"
+                    alt="RG do cliente"
+                  >
+                  <input
+                    id="student-identifier-input"
+                    type="number"
+                    name="student-identifier"
+                    placeholder="Digite o RG"
+                    class="standard-input student-identifier"
+                    required
+                  >
+                </div>
+              </div>
+              <div class="multiple-rows-input">
+                <label for="student-identifier-input">
+                  <span>CPF</span>
+                </label>
+                <div class="input-icon-container">
+                  <img
+                    class="standard-input-icon"
+                    src="./../assets/digits-icon.svg"
+                    alt="CPF do cliente"
+                  >
+                  <input
+                    id="student-identifier-input"
+                    type="number"
+                    name="student-identifier"
+                    placeholder="Digite o CPF"
+                    class="standard-input student-identifier"
+                    required
+                  >
+                </div>
+              </div>
+              <div class="multiple-rows-input">
+                <label for="student-age-input">
+                  <span>NASCIMENTO</span>
+                </label>
+                <div class="input-icon-container">
+                  <img 
+                    class="standard-input-icon" 
+                    src="./../assets/calendar-icon.svg"
+                    alt="Idade do cliente"
+                  >
+                  <input
+                    id="student-age-input"
+                    type="date"
+                    placeholder="Idade"
+                    name="student-age"
+                    class="standard-input student-birthday"
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="standard-input-container">
+              <label for="student-email-input">
+                <span>E-MAIL</span>
+              </label>
+              <div class="input-icon-container">
+                <img 
+                  class="standard-input-icon" 
+                  src="./../assets/mail-icon.svg"
+                  alt="Email do cliente"
+                >
+                <input
+                  id="student-email-input"
+                  name="student-email"
+                  type="email"
+                  placeholder="Digite o e-mail"
+                  class="standard-input"
+                  required
+                >
+              </div>
+            </div>
+          </div>
+          <div class="addresses-container">
+            <div class="adresses-header">
+              <label>ENDEREÇOS</label>
+              <hr class="horizontal-line">
+            </div>
+            <div class="standard-input-container">
+              <label for="student-address-input">
+                <span>NOME DO ENDEREÇO</span>
+              </label>
+              <div class="input-icon-container">
+                <img
+                  class="standard-input-icon"
+                  src="./../assets/house-icon.svg"
+                  alt="Nome do endereço do cliente"
+                >
+                <input
+                  id="student-address-input"
+                  name="student-address"
+                  placeholder="Digite o nome do endereço"
+                  class="standard-input"
+                  required
+                >
+              </div>
+            </div>
+            <div class="standard-input-container multiple-rows-container">
+              <div class="street-container">
+                <label for="student-address-input">
+                  <span>RUA</span>
+                </label>
+                <div class="input-icon-container">
+                  <img
+                    class="standard-input-icon"
+                    src="./../assets/location-icon.svg"
+                    alt="Endereço do cliente"
+                  >
+                  <input
+                    id="student-address-input"
+                    name="student-address"
+                    placeholder="Digite o nome da rua"
+                    class="standard-input"
+                    required
+                  >
+                </div>
+              </div>
+              <div class="address-number-container">
+                <label for="student-address-input">
+                  <span>NÚMERO</span>
+                </label>
+                <div class="input-icon-container">
+                  <img
+                    class="standard-input-icon"
+                    src="./../assets/number-icon.svg"
+                    alt="Número do endereço do cliente"
+                  >
+                  <input
+                    id="student-address-input"
+                    name="student-address"
+                    type="number"
+                    placeholder="Nº"
+                    class="standard-input"
+                    required
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="standard-input-container multiple-rows-container">
+              <div class="multiple-rows-input">
+                <label for="student-identifier-input">
+                  <span>BAIRRO</span>
+                </label>
+                <div class="input-icon-container">
+                  <img
+                    class="standard-input-icon"
+                    src="./../assets/neigh-icon.svg"
+                    alt="Bairro do cliente"
+                  >
+                  <input
+                    id="student-identifier-input"
+                    type="text"
+                    name="student-identifier"
+                    placeholder="Digite o bairro"
+                    class="standard-input student-identifier"
+                    required
+                  >
+                </div>
+              </div>
+              <div class="multiple-rows-input">
+                <label for="student-identifier-input">
+                  <span>COMPLEMENTO</span>
+                </label>
+                <div class="input-icon-container">
+                  <img
+                    class="standard-input-icon"
+                    src="./../assets/address-icon.svg"
+                    alt="Complemento do cliente"
+                  >
+                  <input
+                    id="student-identifier-input"
+                    type="text"
+                    name="student-identifier"
+                    placeholder="Complemento"
+                    class="standard-input student-identifier"
+                    required
+                  >
+                </div>
+              </div>
+              <div class="multiple-rows-input">
+                <label for="student-age-input">
+                  <span>CEP</span>
+                </label>
+                <div class="input-icon-container">
+                  <img 
+                    class="standard-input-icon" 
+                    src="./../assets/map-icon.svg"
+                    alt="Idade do cliente"
+                  >
+                  <input
+                    id="student-age-input"
+                    type="text"
+                    placeholder="Digite o CEP"
+                    name="student-age"
+                    class="standard-input student-birthday"
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="standard-input-container multiple-rows-container">
+              <div class="street-container">
+                <label for="student-address-input">
+                  <span>CIDADE</span>
+                </label>
+                <div class="input-icon-container">
+                  <img
+                    class="standard-input-icon"
+                    src="./../assets/city-icon.svg"
+                    alt="Endereço do cliente"
+                  >
+                  <input
+                    id="student-address-input"
+                    type="text"
+                    name="student-address"
+                    placeholder="Digite o nome da rua"
+                    class="standard-input"
+                    required
+                  >
+                </div>
+              </div>
+              <div class="address-number-container">
+                <label for="student-address-input">
+                  <span>ESTADO</span>
+                </label>
+                <div class="input-icon-container">
+                  <img
+                    class="standard-input-icon"
+                    src="./../assets/state-icon.svg"
+                    alt="Endereço do cliente"
+                  >
+                  <input
+                    id="student-address-input"
+                    name="student-address"
+                    type="text"
+                    placeholder="Estado"
+                    class="standard-input"
+                    required
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          id="submit-button"
+          class="submit-button"
+          type="submit"
+          name="submit-button"
+          disabled
+        >
+          CADASTRAR
+        </button>
+      </form>
+      <footer class="footer-container">
+        <div class="footer-text">
+          <p class="author-name">Gustavo Ramos Romagnolo</p>
+          <h4>@GutoRomagnolo</h4>
+        </div>
+        <a href="https://github.com/GutoRomagnolo" target="_blank">
+          <img class="icon-git" alt="Github" src="./../assets/icon-git.png">
+        </a>
+      </footer>
+    </div>
+    <script src="./customers-registration.js"></script>
+  </body>
+</html>

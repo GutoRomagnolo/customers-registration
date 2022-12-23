@@ -39,7 +39,7 @@
               <hr class="horizontal-line">
             </div>
             <div class="standard-input-container">
-              <label for="student-name-input">
+              <label for="customer-name-input">
                 <span>NOME</span>
               </label>
               <div class="input-icon-container">
@@ -49,18 +49,18 @@
                   alt="Nome do cliente"
                 >
                 <input
-                  id="student-name-input"
-                  name="student-name"
+                  id="customer-name-input"
+                  name="customer-name"
                   type="text"
                   placeholder="Digite o nome"
-                  class="standard-input student-name"
+                  class="standard-input customer-name"
                   required
                 >  
               </div>
             </div>
             <div class="standard-input-container multiple-rows-container">
               <div class="multiple-rows-input">
-                <label for="student-identifier-input">
+                <label for="customer-identifier-input">
                   <span>RG</span>
                 </label>
                 <div class="input-icon-container">
@@ -70,17 +70,17 @@
                     alt="RG do cliente"
                   >
                   <input
-                    id="student-identifier-input"
+                    id="customer-identifier-input"
                     type="number"
-                    name="student-identifier"
+                    name="customer-identifier"
                     placeholder="Digite o RG"
-                    class="standard-input student-identifier"
+                    class="standard-input customer-identifier"
                     required
                   >
                 </div>
               </div>
               <div class="multiple-rows-input">
-                <label for="student-identifier-input">
+                <label for="customer-identifier-input">
                   <span>CPF</span>
                 </label>
                 <div class="input-icon-container">
@@ -90,17 +90,17 @@
                     alt="CPF do cliente"
                   >
                   <input
-                    id="student-identifier-input"
+                    id="customer-identifier-input"
                     type="number"
-                    name="student-identifier"
+                    name="customer-identifier"
                     placeholder="Digite o CPF"
-                    class="standard-input student-identifier"
+                    class="standard-input customer-identifier"
                     required
                   >
                 </div>
               </div>
               <div class="multiple-rows-input">
-                <label for="student-age-input">
+                <label for="customer-age-input">
                   <span>NASCIMENTO</span>
                 </label>
                 <div class="input-icon-container">
@@ -110,17 +110,17 @@
                     alt="Idade do cliente"
                   >
                   <input
-                    id="student-age-input"
+                    id="customer-age-input"
                     type="date"
                     placeholder="Idade"
-                    name="student-age"
-                    class="standard-input student-birthday"
+                    name="customer-age"
+                    class="standard-input customer-birthday"
                   >
                 </div>
               </div>
             </div>
             <div class="standard-input-container">
-              <label for="student-email-input">
+              <label for="customer-email-input">
                 <span>E-MAIL</span>
               </label>
               <div class="input-icon-container">
@@ -130,8 +130,8 @@
                   alt="Email do cliente"
                 >
                 <input
-                  id="student-email-input"
-                  name="student-email"
+                  id="customer-email-input"
+                  name="customer-email"
                   type="email"
                   placeholder="Digite o e-mail"
                   class="standard-input"
@@ -145,180 +145,30 @@
               <label>ENDEREÇOS</label>
               <hr class="horizontal-line">
             </div>
-            <div class="standard-input-container">
-              <label for="student-address-input">
-                <span>NOME DO ENDEREÇO</span>
-              </label>
-              <div class="input-icon-container">
-                <img
-                  class="standard-input-icon"
-                  src="./../assets/house-icon.svg"
-                  alt="Nome do endereço do cliente"
-                >
-                <input
-                  id="student-address-input"
-                  name="student-address"
-                  placeholder="Digite o nome do endereço"
-                  class="standard-input"
-                  required
-                >
-              </div>
-            </div>
-            <div class="standard-input-container multiple-rows-container">
-              <div class="street-container">
-                <label for="student-address-input">
-                  <span>RUA</span>
-                </label>
-                <div class="input-icon-container">
-                  <img
-                    class="standard-input-icon"
-                    src="./../assets/location-icon.svg"
-                    alt="Endereço do cliente"
-                  >
-                  <input
-                    id="student-address-input"
-                    name="student-address"
-                    placeholder="Digite o nome da rua"
-                    class="standard-input"
-                    required
-                  >
-                </div>
-              </div>
-              <div class="address-number-container">
-                <label for="student-address-input">
-                  <span>NÚMERO</span>
-                </label>
-                <div class="input-icon-container">
-                  <img
-                    class="standard-input-icon"
-                    src="./../assets/number-icon.svg"
-                    alt="Número do endereço do cliente"
-                  >
-                  <input
-                    id="student-address-input"
-                    name="student-address"
-                    type="number"
-                    placeholder="Nº"
-                    class="standard-input"
-                    required
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="standard-input-container multiple-rows-container">
-              <div class="multiple-rows-input">
-                <label for="student-identifier-input">
-                  <span>BAIRRO</span>
-                </label>
-                <div class="input-icon-container">
-                  <img
-                    class="standard-input-icon"
-                    src="./../assets/neigh-icon.svg"
-                    alt="Bairro do cliente"
-                  >
-                  <input
-                    id="student-identifier-input"
-                    type="text"
-                    name="student-identifier"
-                    placeholder="Digite o bairro"
-                    class="standard-input student-identifier"
-                    required
-                  >
-                </div>
-              </div>
-              <div class="multiple-rows-input">
-                <label for="student-identifier-input">
-                  <span>COMPLEMENTO</span>
-                </label>
-                <div class="input-icon-container">
-                  <img
-                    class="standard-input-icon"
-                    src="./../assets/address-icon.svg"
-                    alt="Complemento do cliente"
-                  >
-                  <input
-                    id="student-identifier-input"
-                    type="text"
-                    name="student-identifier"
-                    placeholder="Complemento"
-                    class="standard-input student-identifier"
-                    required
-                  >
-                </div>
-              </div>
-              <div class="multiple-rows-input">
-                <label for="student-age-input">
-                  <span>CEP</span>
-                </label>
-                <div class="input-icon-container">
-                  <img 
-                    class="standard-input-icon" 
-                    src="./../assets/map-icon.svg"
-                    alt="Idade do cliente"
-                  >
-                  <input
-                    id="student-age-input"
-                    type="text"
-                    placeholder="Digite o CEP"
-                    name="student-age"
-                    class="standard-input student-birthday"
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="standard-input-container multiple-rows-container">
-              <div class="street-container">
-                <label for="student-address-input">
-                  <span>CIDADE</span>
-                </label>
-                <div class="input-icon-container">
-                  <img
-                    class="standard-input-icon"
-                    src="./../assets/city-icon.svg"
-                    alt="Endereço do cliente"
-                  >
-                  <input
-                    id="student-address-input"
-                    type="text"
-                    name="student-address"
-                    placeholder="Digite o nome da rua"
-                    class="standard-input"
-                    required
-                  >
-                </div>
-              </div>
-              <div class="address-number-container">
-                <label for="student-address-input">
-                  <span>ESTADO</span>
-                </label>
-                <div class="input-icon-container">
-                  <img
-                    class="standard-input-icon"
-                    src="./../assets/state-icon.svg"
-                    alt="Endereço do cliente"
-                  >
-                  <input
-                    id="student-address-input"
-                    name="student-address"
-                    type="text"
-                    placeholder="Estado"
-                    class="standard-input"
-                    required
-                  >
-                </div>
-              </div>
+            <div class="address-content" id="new-address-spot"></div>
+            <div class="new-address-button-container">
+              <button class="add-new-address-button" onclick="createNewAddressContainer()" type="button">
+                <span>ADICIONAR NOVA LOCALIZAÇÃO</span>
+                <img 
+                class="new-address-icon" 
+                src="./../assets/add-icon.svg"
+                alt="Adicionar nova localização"
+                > 
+              </button>
             </div>
           </div>
         </div>
-        <button
-          id="submit-button"
-          class="submit-button"
-          type="submit"
-          name="submit-button"
-          disabled
-        >
-          CADASTRAR
-        </button>
+        <div class="submit-button-container">
+          <button
+            id="submit-button"
+            class="submit-button"
+            type="submit"
+            name="submit-button"
+            disabled
+          >
+            CADASTRAR
+          </button>
+        </div>
       </form>
       <footer class="footer-container">
         <div class="footer-text">

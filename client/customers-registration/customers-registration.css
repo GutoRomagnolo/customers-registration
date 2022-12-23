@@ -67,12 +67,12 @@ label {
   display: flex;
   position: relative;
   flex-direction: column;
-  align-items: flex-end;
   margin-top: 7rem;
   background: #f9f9f9;
   border-radius: 0.5rem;
   color: #313638;
   box-shadow: rgba(0, 0, 0, 0.24) 0 0.188rem 0.5rem;
+  min-width: 70rem;
 }
 
 .form-header {
@@ -99,6 +99,10 @@ label {
 .adresses-header {
   padding-bottom: 1rem;
   font-size: 1.2rem;
+}
+
+.horizontal-line {
+  background-color: #000;
 }
 
 .adresses-header {
@@ -155,7 +159,7 @@ label {
   height: 1.5rem;
 }
 
-.student-gender {
+.customer-gender {
   background-image:
   linear-gradient(45deg, transparent 50%, #000 50%),
   linear-gradient(135deg, #000 50%, transparent 50%),
@@ -171,14 +175,39 @@ label {
   background-repeat: no-repeat;
 }
 
-.student-birthday::-webkit-inner-spin-button,
-.student-birthday::-webkit-calendar-picker-indicator {
+.customer-birthday::-webkit-inner-spin-button,
+.customer-birthday::-webkit-calendar-picker-indicator {
   display: none;
   -webkit-appearance: none;
 }   
 
-.student-gender:invalid {
+.customer-gender:invalid {
   color: rgba(0, 0, 0, 0.5);
+}
+
+.addresses-container, .add-new-address-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.unitary-new-address {
+  margin-bottom: 1rem;
+}
+
+.minimized-address-title {
+  display: flex;
+  align-items: center;
+  border: solid #000 0.1rem;
+  border-radius: 0.3rem 0.3rem 0 0;
+  padding: 0.5rem;
+  justify-content: space-between;
+}
+
+.address-content-expanded {
+  border: solid #000;
+  border-width: 0 0.1rem 0.1rem 0.1rem;
+  padding: 1rem 1rem 0 1rem;
+  border-radius: 0 0 0.3rem 0.3rem;
 }
 
 .street-container {
@@ -187,6 +216,35 @@ label {
 
 .address-number-container {
   width: 15%;
+}
+
+.new-address-button-container {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 1rem;
+}
+
+.add-new-address-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.40rem;
+  font-family: 'Roboto';
+  border-radius: 0.3rem;
+  border: 0;
+  font-size: 0.9rem;
+  background-color: #7e7e7e1a;
+  font-weight: 600;
+}
+
+.new-address-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.submit-button-container {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .submit-button {
@@ -266,4 +324,8 @@ label {
 
 .icon-git:hover {
   transform: scale(1.08);
+}
+
+.hidden-element {
+  display: none;
 }

@@ -1,38 +1,38 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  function registerStudent($registerFileName) {
+  function registerCustomer($registerFileName) {
     if (file_exists("$registerFileName")) {
-      $actualStudentsRegisters = file_get_contents("$registerFileName");
-      $studentsRegisterObject = json_decode($actualStudentsRegisters, true);
+      $actualCustomersRegisters = file_get_contents("$registerFileName");
+      $customersRegisterObject = json_decode($actualCustomersRegisters, true);
 
-      $studentsFields = array(
-        'name' => $_POST['student-name'],
-        'email' => $_POST['student-email'],
-        'identifier' => $_POST['student-identifier'],
-        'gender' => $_POST['student-gender'],
-        'age' => $_POST['student-age'],
-        'address' => $_POST['student-address'],
+      $customersFields = array(
+        'name' => $_POST['customer-name'],
+        'email' => $_POST['customer-email'],
+        'identifier' => $_POST['customer-identifier'],
+        'gender' => $_POST['customer-gender'],
+        'age' => $_POST['customer-age'],
+        'address' => $_POST['customer-address'],
       );
 
-      $studentsRegisterObject[] = $studentsFields;
-      return json_encode($studentsRegisterObject);
+      $customersRegisterObject[] = $customersFields;
+      return json_encode($customersRegisterObject);
     }
     else {
-      $newStudentRegister = array();
-      $newStudentRegister[] = array(
-        'name' => $_POST['student-name'],
-        'email' => $_POST['student-email'],
-        'identifier' => $_POST['student-identifier'],
-        'gender' => $_POST['student-gender'],
-        'age' => $_POST['student-age'],
-        'address' => $_POST['student-address'],
+      $newCustomerRegister = array();
+      $newCustomerRegister[] = array(
+        'name' => $_POST['customer-name'],
+        'email' => $_POST['customer-email'],
+        'identifier' => $_POST['customer-identifier'],
+        'gender' => $_POST['customer-gender'],
+        'age' => $_POST['customer-age'],
+        'address' => $_POST['customer-address'],
       );
       echo "file not exist<br/>";
-      return json_encode($newStudentRegister);
+      return json_encode($newCustomerRegister);
     }
   }
 
   $fileName = './../customers-list/customers-register.json';
-  file_put_contents("$fileName", registerStudent($fileName));
+  file_put_contents("$fileName", registerCustomer($fileName));
 }
 ?>  

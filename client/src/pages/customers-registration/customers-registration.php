@@ -160,7 +160,7 @@
             </div>
           </div>
         </div>
-        <?php createPrimaryButton('CADASTRAR');?>
+        <?php createPrimaryButton('CADASTRAR', 'submit-form-button', '', 'submit');?>
       </form>
       <footer class="footer-container">
         <div class="footer-text">

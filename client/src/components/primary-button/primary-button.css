@@ -8,17 +8,17 @@
   font-size: 1.2rem;
   font-weight: 600;
   padding: 0.52rem;
-  cursor: pointer;
   font-family: 'Roboto';
   border-radius: 0.3rem;
   border: 0;
   background-color: #E35214;
+  transition: all 0.15s ease-in-out;
   color: #fff;
   right: 0;
 }
 
 .primary-button:hover {
-  background-color: #f4682d;
+  background-color: #ff8b1f;
 }
 
 .primary-button:disabled {

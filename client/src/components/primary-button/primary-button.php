@@ -1,13 +1,13 @@
 <?php
-function createPrimaryButton($buttonInsiderText) {
+function createPrimaryButton($buttonInsiderText, $buttonId, $buttonClickFunction, $buttonType) {
   $primaryButtonTemplate = "
     <div class=\"primary-button-container\">
       <button
-        id=\"primary-button\"
+        id=\"$buttonId\"
         class=\"primary-button\"
-        type=\"submit\"
+        type=\"$buttonType\"
         name=\"primary-button\"
-        disabled
+        onclick=\"$buttonClickFunction\"
       >
         <span>$buttonInsiderText</span>
       </button>

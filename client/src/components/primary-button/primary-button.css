@@ -1,0 +1,29 @@
+.primary-button-container {
+  display: flex;
+}
+
+.primary-button {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.52rem;
+  cursor: pointer;
+  font-family: 'Roboto';
+  border-radius: 0.3rem;
+  border: 0;
+  background-color: #E35214;
+  color: #fff;
+  right: 0;
+}
+
+.primary-button:hover {
+  background-color: #f4682d;
+}
+
+.primary-button:disabled {
+  cursor: default;
+  background-color: #cccccc;
+  color: #666666;
+  background-image: none;
+}

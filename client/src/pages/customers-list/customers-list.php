@@ -9,20 +9,11 @@
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
     >
-    <link rel="icon" type="image/x-icon" href="./../assets/document-icon.svg">
+    <link rel="icon" type="image/x-icon" href="./../../assets/document-icon.svg">
   </head>
 
   <body>
-    <header>
-      <nav class="header-navigation">
-        <a class="customers-nav" href="./../customers-registration/customers-registration.html">
-          <div>CADASTRO DE CLIENTES</div>
-        </a>
-        <a class="customers-nav" href="./customers-list.html">
-          <div>LISTA DE CLIENTES</div>
-        </a>
-      </nav>
-    </header>
+    <?php require_once "../../components/standard_header/standard_header.php" ?>
     <section class="main-container">
       <h1>LISTA DE CLIENTES</h1>
       <div class="customers-list-container" id="customers-list"></div>
@@ -32,7 +23,7 @@
           <h4>@GutoRomagnolo</h4>
         </div>
         <a href="https://github.com/GutoRomagnolo" target="_blank">
-          <img class="icon-git" alt="Github" src="./../assets/icon-git.png">
+          <img class="icon-git" alt="Github" src="./../../assets/icon-git.png">
         </a>
       </footer>
     </section>

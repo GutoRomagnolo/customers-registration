@@ -1,0 +1,32 @@
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 5rem;
+  background-color: #0060b1;
+}
+
+.header-navigation {
+  display: flex;
+  flex-direction: row;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  font-family: 'Roboto';
+}
+
+.customers-nav {
+  padding-left: 2rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  height: 100%;
+  color: #fff;
+  text-decoration: none;
+}
+
+.customers-nav:hover {
+  transform: scale(1.01);
+  color: #21D4FD;
+}

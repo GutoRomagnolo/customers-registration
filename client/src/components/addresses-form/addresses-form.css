@@ -1,0 +1,31 @@
+.minimized-address-title {
+  display: flex;
+  align-items: center;
+  border: solid #000 0.1rem;
+  border-radius: 0.3rem 0.3rem 0 0;
+  padding: 0.5rem;
+  justify-content: space-between;
+}
+
+.address-content-expanded {
+  border: solid #000;
+  border-width: 0 0.1rem 0.1rem 0.1rem;
+  padding: 1rem 1rem 0 1rem;
+  border-radius: 0 0 0.3rem 0.3rem;
+}
+
+.street-container {
+  width: 80%;
+}
+
+.address-number-container {
+  width: 15%;
+}
+
+.full-border-element {
+  border-radius: 0.3rem;
+}
+
+.hidden-element {
+  display: none;
+}

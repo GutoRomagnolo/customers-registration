@@ -9,16 +9,6 @@ body {
   min-height: 100vh;
 }
 
-header {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  height: 5rem;
-  background-color: #0060b1;
-}
-
 select {
   appearance: none;
 }
@@ -40,27 +30,13 @@ label {
   padding-bottom: 0.3rem;
 }
 
-.header-navigation {
-  display: flex;
-  flex-direction: row;
-  font-weight: 600;
-  font-size: 1rem;
-  text-align: center;
-  font-family: 'Roboto';
+.primary-button-container {
+  padding-top: 3rem;
+  justify-content: flex-end;
 }
 
-.customers-nav {
-  padding-left: 2rem;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  height: 100%;
-  color: #fff;
-  text-decoration: none;
-}
-
-.customers-nav:hover {
-  transform: scale(1.01);
-  color: #21D4FD;
+.primary-button {
+  margin: 0 1.9rem 2rem 0;
 }
 
 .register-form {
@@ -81,8 +57,6 @@ label {
   align-items: center;
   width: 100%;
   background-color: #E35214;
-  /*background-color: #21D4FD;
-  background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);*/
   border-radius: 0.5rem 0.5rem 0 0;
 }
 
@@ -140,6 +114,10 @@ label {
   font-size: 1.2rem;
 }
 
+input[type="date" i] {
+  color: #8e8e8e;
+}
+
 .multiple-rows-input {
   display: flex;
   flex-direction: column;
@@ -159,63 +137,15 @@ label {
   height: 1.5rem;
 }
 
-.customer-gender {
-  background-image:
-  linear-gradient(45deg, transparent 50%, #000 50%),
-  linear-gradient(135deg, #000 50%, transparent 50%),
-  linear-gradient(to right, #ccc, #ccc);
-  background-position:
-    calc(100% - 1.25rem) calc(1rem + 0.125rem),
-    calc(100% - 0.938rem) calc(1rem + 0.125rem),
-    calc(100% - 2.5rem) 0.5em;
-  background-size:
-    0.313rem 0.313rem,
-    0.313rem 0.313rem,
-    0.063rem 1.5rem;
-  background-repeat: no-repeat;
-}
-
 .customer-birthday::-webkit-inner-spin-button,
 .customer-birthday::-webkit-calendar-picker-indicator {
   display: none;
   -webkit-appearance: none;
-}   
+}  
 
-.customer-gender:invalid {
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.addresses-container, .add-new-address-container {
+.addresses-container {
   display: flex;
   flex-direction: column;
-}
-
-.unitary-new-address {
-  margin-bottom: 1rem;
-}
-
-.minimized-address-title {
-  display: flex;
-  align-items: center;
-  border: solid #000 0.1rem;
-  border-radius: 0.3rem 0.3rem 0 0;
-  padding: 0.5rem;
-  justify-content: space-between;
-}
-
-.address-content-expanded {
-  border: solid #000;
-  border-width: 0 0.1rem 0.1rem 0.1rem;
-  padding: 1rem 1rem 0 1rem;
-  border-radius: 0 0 0.3rem 0.3rem;
-}
-
-.street-container {
-  width: 80%;
-}
-
-.address-number-container {
-  width: 15%;
 }
 
 .new-address-button-container {
@@ -227,53 +157,33 @@ label {
 .add-new-address-button {
   display: flex;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
   padding: 0.40rem;
   font-family: 'Roboto';
   border-radius: 0.3rem;
-  border: 0;
+  border: solid #000 0.1rem;
   font-size: 0.9rem;
   background-color: #7e7e7e1a;
   font-weight: 600;
+  transition: all 0.1s ease-in-out;
+}
+
+.add-new-address-button:hover {
+  background-color: #c2c2c21a;
+  transform:scale(1.009);
 }
 
 .new-address-icon {
   width: 1.5rem;
   height: 1.5rem;
+  border-radius: 50%;
+  border: solid #000 0.1rem;
+  margin-left: 0.3rem;
 }
 
-.submit-button-container {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.submit-button {
-  display: flex;
-  align-items: center;
-  font-size: 1.2rem;
-  font-weight: 600;
-  padding: 0.52rem;
-  margin: 0 1.9rem 2rem 0;
-  cursor: pointer;
-  font-family: 'Roboto';
-  border-radius: 0.3rem;
-  border: 0;
-  background-color: #21D4FD;
-  background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);  
-  color: #fff;
-  right: 0;
-}
-
-.submit-button:hover {
-  background-color: #21D4FD;
-  background-image: linear-gradient(19deg, #1aa2c0 0%, #8a1cbd 100%);
-}
-
-.submit-button:disabled {
-  cursor: default;
-  background-color: #cccccc;
-  color: #666666;
-  background-image: none;
+.unitary-new-address {
+  margin-bottom: 1rem;
 }
 
 .success-message {
@@ -324,8 +234,4 @@ label {
 
 .icon-git:hover {
   transform: scale(1.08);
-}
-
-.hidden-element {
-  display: none;
 }

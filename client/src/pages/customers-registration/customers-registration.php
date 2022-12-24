@@ -1,3 +1,8 @@
+<?php
+  require_once './../../components/primary-button/primary-button.php';
+  require_once './../../components/secundary-button/secundary-button.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
   <head>
@@ -5,24 +10,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="customers-registration.css" rel="stylesheet">
+    <link href="./../../components/primary-button/primary-button.css" rel="stylesheet">
+    <link href="./../../components/secundary-button/secundary-button.css" rel="stylesheet">
+    <link href="./../../components/addresses-form/addresses-form.css" rel="stylesheet">
+    <link href="./../../components/standard-header/standard-header.css" rel="stylesheet">
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
     >
-    <link rel="icon" type="image/x-icon" href="./../assets/document-icon.svg">
+    <link rel="icon" type="image/x-icon" href="./../../assets/document-icon.svg">
   </head>
 
   <body>
-    <header>
-      <nav class="header-navigation">
-        <a class="customers-nav" href="./customers-registration.html">
-          <div>CADASTRO DE CLIENTES</div>
-        </a>
-        <a class="customers-nav" href="./../customers-list/customers-list.html">
-          <div>LISTA DE CLIENTES</div>
-        </a>
-      </nav>
-    </header>
+    <?php require_once './../../components/standard-header/standard-header.php' ?>
     <div class="main-container" id="main-container">
       <form
         id="register-form"
@@ -45,7 +45,7 @@
               <div class="input-icon-container">
                 <img
                   class="standard-input-icon"
-                  src="./../assets/profile-icon.svg"
+                  src="./../../assets/profile-icon.svg"
                   alt="Nome do cliente"
                 >
                 <input
@@ -66,7 +66,7 @@
                 <div class="input-icon-container">
                   <img
                     class="standard-input-icon"
-                    src="./../assets/document-icon.svg"
+                    src="./../../assets/document-icon.svg"
                     alt="RG do cliente"
                   >
                   <input
@@ -86,7 +86,7 @@
                 <div class="input-icon-container">
                   <img
                     class="standard-input-icon"
-                    src="./../assets/digits-icon.svg"
+                    src="./../../assets/digits-icon.svg"
                     alt="CPF do cliente"
                   >
                   <input
@@ -95,6 +95,7 @@
                     name="customer-identifier"
                     placeholder="Digite o CPF"
                     class="standard-input customer-identifier"
+                    pattern="[0-9]+"
                     required
                   >
                 </div>
@@ -106,7 +107,7 @@
                 <div class="input-icon-container">
                   <img 
                     class="standard-input-icon" 
-                    src="./../assets/calendar-icon.svg"
+                    src="./../../assets/calendar-icon.svg"
                     alt="Idade do cliente"
                   >
                   <input
@@ -115,6 +116,7 @@
                     placeholder="Idade"
                     name="customer-age"
                     class="standard-input customer-birthday"
+                    onfocus="(this.type='date')"
                   >
                 </div>
               </div>
@@ -126,7 +128,7 @@
               <div class="input-icon-container">
                 <img 
                   class="standard-input-icon" 
-                  src="./../assets/mail-icon.svg"
+                  src="./../../assets/mail-icon.svg"
                   alt="Email do cliente"
                 >
                 <input
@@ -148,27 +150,17 @@
             <div class="address-content" id="new-address-spot"></div>
             <div class="new-address-button-container">
               <button class="add-new-address-button" onclick="createNewAddressContainer()" type="button">
-                <span>ADICIONAR NOVA LOCALIZAÇÃO</span>
+                <span>ADICIONAR NOVO ENDEREÇO</span>
                 <img 
                 class="new-address-icon" 
-                src="./../assets/add-icon.svg"
+                src="./../../assets/add-icon.svg"
                 alt="Adicionar nova localização"
                 > 
               </button>
             </div>
           </div>
         </div>
-        <div class="submit-button-container">
-          <button
-            id="submit-button"
-            class="submit-button"
-            type="submit"
-            name="submit-button"
-            disabled
-          >
-            CADASTRAR
-          </button>
-        </div>
+        <?php createPrimaryButton('CADASTRAR');?>
       </form>
       <footer class="footer-container">
         <div class="footer-text">
@@ -176,7 +168,7 @@
           <h4>@GutoRomagnolo</h4>
         </div>
         <a href="https://github.com/GutoRomagnolo" target="_blank">
-          <img class="icon-git" alt="Github" src="./../assets/icon-git.png">
+          <img class="icon-git" alt="Github" src="./../../assets/icon-git.png">
         </a>
       </footer>
     </div>

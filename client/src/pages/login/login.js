@@ -16,4 +16,8 @@ const validateFormInputs = (formInputs) => {
     : loginButton.setAttribute('disabled', 'disabled')
 }
 
+const redirectCreateAccount = () => {
+  window.open('./../sign-up/sign-up.php', "_self")
+}
+
 startInputListeners();

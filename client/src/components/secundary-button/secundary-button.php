@@ -1,8 +1,8 @@
 <?php
 function createSecundaryButton($buttonInsiderText, $buttonClickFunction) {
   $secundaryButtonTemplate = "
-    <div class=\"remove-address-button-container\">
-      <button class=\"remove-address-button\" type=\"button\" onclick=\"$buttonClickFunction\">
+    <div class=\"secundary-button-container\">
+      <button class=\"secundary-button\" type=\"button\" onclick=\"$buttonClickFunction\">
         <span>$buttonInsiderText</span>
       </button>
     </div>

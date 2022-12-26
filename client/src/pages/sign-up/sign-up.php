@@ -35,7 +35,7 @@ require_once './../../components/secundary-button/secundary-button.php';
             </label>
             <div class="input-icon-container">
               <img class="standard-input-icon" src="./../../assets/customer-icon.svg" alt="Nome do usuário">
-              <input id="user-name-input" name="user-name" type="text" placeholder="Digite seu nome"
+              <input id="user-name-input" name="userName" type="text" placeholder="Digite seu nome"
                 class="standard-input" required>
             </div>
           </div>
@@ -45,7 +45,7 @@ require_once './../../components/secundary-button/secundary-button.php';
             </label>
             <div class="input-icon-container">
               <img class="standard-input-icon" src="./../../assets/mail-icon.svg" alt="Email do usuário">
-              <input id="user-email-input" name="user-email" type="email" placeholder="Digite seu e-mail"
+              <input id="user-email-input" name="userEmail" type="email" placeholder="Digite seu e-mail"
                 class="standard-input" required>
             </div>
           </div>
@@ -55,7 +55,7 @@ require_once './../../components/secundary-button/secundary-button.php';
             </label>
             <div class="input-icon-container">
               <img class="standard-input-icon" src="./../../assets/password-icon.svg" alt="Senha do usuário">
-              <input id="user-password-input" name="user-password" type="password" placeholder="Digite sua senha"
+              <input id="user-password-input" name="userPassword" type="password" placeholder="Digite sua senha"
                 class="standard-input" required>
             </div>
           </div>
@@ -65,7 +65,7 @@ require_once './../../components/secundary-button/secundary-button.php';
             </label>
             <div class="input-icon-container">
               <img class="standard-input-icon" src="./../../assets/password-icon.svg" alt="Confirmação de senha">
-              <input id="user-confirm-password-input" name="user-password-confirm" type="password" placeholder="Digite novamente sua senha"
+              <input id="user-confirm-password-input" type="password" placeholder="Digite novamente sua senha"
                 class="standard-input" required>
             </div>
           </div>

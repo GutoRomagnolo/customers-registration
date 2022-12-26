@@ -8,6 +8,7 @@ use src\App\Models\Database;
 class Customers extends Database {
   private $appDatabase;
   private $customerId;
+  private $customerEmail;
   private $customerName;
   private $customerBirthday;
   private $customerCPF;
@@ -25,6 +26,14 @@ class Customers extends Database {
 
   public function setCustomerId(int $customerId = 0): void {
     $this->customerId = $customerId;
+  }
+
+  public function getCustomerEmail(): int {
+    return $this->customerEmail;
+  }
+
+  public function setCustomerEmail(int $customerEmail = 0): void {
+    $this->customerEmail = $customerEmail;
   }
 
   public function getCustomerName(): string {
@@ -69,6 +78,7 @@ class Customers extends Database {
 
   public function createCustomer(): string {
     try {
+      $customerEmail = $this->getCustomerEmail();
       $customerName = $this->getCustomerName();
       $customerBirthday = $this->getCustomerBirthday();
       $customerCPF = $this->getCustomerCPF();
@@ -77,12 +87,14 @@ class Customers extends Database {
 
       $createCustomerStatement = $this->appDatabase->prepare(
         "INSERT INTO customers (
+          customer_email,
           customer_name,
           birthday,
           cpf,
           rg,
           phone_number) 
         VALUES (
+          :customerEmail,
           :customerName,
           :customerBirthday,
           :customerCPF,
@@ -90,6 +102,7 @@ class Customers extends Database {
           :customerPhoneNumber
         )"
       );
+      $createCustomerStatement->bindParam(":customerEmail", $customerEmail, PDO::PARAM_STR);
       $createCustomerStatement->bindParam(":customerName", $customerName, PDO::PARAM_STR);
       $createCustomerStatement->bindParam(":customerBirthday", $customerBirthday, PDO::PARAM_STR);
       $createCustomerStatement->bindParam(":customerCPF", $customerCPF, PDO::PARAM_STR);
@@ -132,9 +145,9 @@ class Customers extends Database {
     }
   }
 
-  public function updateCustomer($customerId): string
-  {
+  public function updateCustomer($customerId): string {
     try {
+      $customerEmail = $this->getcustomerEmail();
       $customerName = $this->getCustomerName();
       $customerBirthday = $this->getCustomerBirthday();
       $customerCPF = $this->getCustomerCPF();
@@ -142,7 +155,8 @@ class Customers extends Database {
       $customerPhoneNumber = $this->getCustomerPhoneNumber();
 
       $updateCustomerStatement = $this->appDatabase->prepare(
-        "UPDATE clients SET 
+        "UPDATE clients SET
+          customer_email = :customerEmail,
           customer_name = :customerName,
           birthday = :customerBirthday,
           cpf = :customerCPF,
@@ -151,6 +165,7 @@ class Customers extends Database {
         WHERE id = :customerId"
       );
 
+      $updateCustomerStatement->bindParam(":customerEmail", $customerEmail, PDO::PARAM_STR);
       $updateCustomerStatement->bindParam(":customerName", $customerName, PDO::PARAM_STR);
       $updateCustomerStatement->bindParam(":customerBirthday", $customerBirthday, PDO::PARAM_STR);
       $updateCustomerStatement->bindParam(":customerCPF", $customerCPF, PDO::PARAM_STR);
@@ -164,8 +179,7 @@ class Customers extends Database {
     }
   }
 
-  public function deleteCustomer($customerId): string
-  {
+  public function deleteCustomer($customerId): string {
     try {
       $deleteCustomerStatement = $this->appDatabase->prepare("DELETE FROM customers WHERE id = :customerId");
       $deleteCustomerStatement->bindParam(":customerId", $customerId, PDO::PARAM_INT);

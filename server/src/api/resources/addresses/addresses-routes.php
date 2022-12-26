@@ -26,7 +26,7 @@ Utils::buildRoute("/addresses/new-address", "POST", function () {
   $addresses->setNeighborhood($_POST["addressNeighborhood"]);
   $addresses->setCity($_POST["addressCity"]);
   $addresses->settAddressState($_POST["addressState"]);
-  $addresses->setZipCode($_POST["zipCode"]);
+  $addresses->setZipCode($_POST["addressZipCode"]);
   echo $addresses->newAddress();
 });
 

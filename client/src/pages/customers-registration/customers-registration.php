@@ -50,7 +50,7 @@
                 >
                 <input
                   id="customer-name-input"
-                  name="customer-name"
+                  name="customerName"
                   type="text"
                   placeholder="Digite o nome"
                   class="standard-input customer-name"
@@ -72,7 +72,7 @@
                   <input
                     id="customer-identifier-input"
                     type="number"
-                    name="customer-identifier"
+                    name="customerRG"
                     placeholder="Digite o RG"
                     class="standard-input customer-identifier"
                     required
@@ -92,7 +92,7 @@
                   <input
                     id="customer-identifier-input"
                     type="number"
-                    name="customer-identifier"
+                    name="customerCPF"
                     placeholder="Digite o CPF"
                     class="standard-input customer-identifier"
                     pattern="[0-9]+"
@@ -113,8 +113,8 @@
                   <input
                     id="customer-age-input"
                     type="date"
-                    placeholder="Idade"
-                    name="customer-age"
+                    placeholder="Nascimento"
+                    name="customerBirthday"
                     class="standard-input customer-birthday"
                     onfocus="(this.type='date')"
                   >
@@ -133,7 +133,7 @@
                 >
                 <input
                   id="customer-email-input"
-                  name="customer-email"
+                  name="customerEmail"
                   type="email"
                   placeholder="Digite o e-mail"
                   class="standard-input"

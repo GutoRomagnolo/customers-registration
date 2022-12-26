@@ -1,25 +1,29 @@
 <?php
 namespace src\App\Models;
+
+require_once './../../config.php';
 use PDO;
 
 class Database {
   private $dbConnection;
 
   public function __construct() {
-    global $dbConfig;
+    global $databaseConfig;
 
     try {
-      $this->dbConnection = new PDO("mysql:dbname={$dbConfig->name};host={$dbConfig->host}", $dbConfig->user, $dbConfig->password);
+      $this->dbConnection = new PDO(
+        "mysql:dbname={$databaseConfig->name};host={$databaseConfig->host}", $databaseConfig->user, $databaseConfig->password
+      );
       $this->dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (\PDOException $exception) {
       die("Connection failed: {$exception->getMessage()}");
     }
   }
 
-  public function createDatabase($dbConfig) {
-    $createDatabase = "CREATE DATABASE IF NOT EXISTS $dbConfig->name";
+  public function createDatabase($databaseConfig) {
+    $createDatabase = "CREATE DATABASE IF NOT EXISTS $databaseConfig->name";
     $this->dbConnection->exec($createDatabase);
-    $this->dbConnection->exec("USE $dbConfig->name");
+    $this->dbConnection->exec("USE $databaseConfig->name");
   }
 
   public function createUsersTable() {

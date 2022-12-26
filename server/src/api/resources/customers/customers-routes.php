@@ -20,6 +20,7 @@ Utils::buildRoute("/customers/get-all", "GET", function () {
 
 Utils::buildRoute("/customers/new-customer", "POST", function () {
   $customers = new CustomersController();
+  $customers->setCustomerEmail($_POST["customerEmail"]);
   $customers->setCustomerName($_POST["customerName"]);
   $customers->setCustomerBirthday($_POST["customerBirthday"]);
   $customers->setCustomerCPF($_POST["customerCPF"]);
@@ -36,6 +37,7 @@ Utils::buildRoute("/customers/get-one/:customerId", "GET", function () {
 
 Utils::buildRoute("/customers/update/:customerId", "POST", function () {
   $customers = new CustomersController();
+  $customers->setCustomerEmail($_POST["customerEmail"]);
   $customers->setCustomerName($_POST["customerName"]);
   $customers->setCustomerBirthday($_POST["customerBirthday"]);
   $customers->setCustomerCPF($_POST["customerCPF"]);

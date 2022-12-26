@@ -35,7 +35,7 @@ require_once './../../components/secundary-button/secundary-button.php';
             </label>
             <div class="input-icon-container">
               <img class="standard-input-icon" src="./../../assets/mail-icon.svg" alt="Email do usuário">
-              <input id="user-email-input" name="user-email" type="email" placeholder="Digite o e-mail"
+              <input id="user-email-input" name="userEmail" type="email" placeholder="Digite o e-mail"
                 class="standard-input" required>
             </div>
           </div>
@@ -45,7 +45,7 @@ require_once './../../components/secundary-button/secundary-button.php';
             </label>
             <div class="input-icon-container">
               <img class="standard-input-icon" src="./../../assets/password-icon.svg" alt="Senha do usuário">
-              <input id="user-email-input" name="user-email" type="email" placeholder="Digite a senha"
+              <input id="user-email-input" name="userPassword" type="email" placeholder="Digite a senha"
                 class="standard-input" required>
             </div>
           </div>

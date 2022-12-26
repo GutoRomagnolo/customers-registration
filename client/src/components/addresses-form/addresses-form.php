@@ -25,7 +25,7 @@ function createAddressForm($addressQuantity) {
           >
           <input
             id=\"address-name-input\"
-            name=\"customer-address-name\"
+            name=\"addressName\"
             placeholder=\"Digite o nome do endereço\"
             class=\"standard-input\"
             required
@@ -45,7 +45,7 @@ function createAddressForm($addressQuantity) {
             >
             <input
               id=\"street-input\"
-              name=\"customer-address-street\"
+              name=\"addressStreet\"
               placeholder=\"Digite o nome da rua\"
               class=\"standard-input\"
               required
@@ -64,7 +64,7 @@ function createAddressForm($addressQuantity) {
             >
             <input
               id=\"address-number-input\"
-              name=\"customer-address-number\"
+              name=\"addressNumber\"
               type=\"number\"
               placeholder=\"Nº\"
               class=\"standard-input\"
@@ -87,7 +87,7 @@ function createAddressForm($addressQuantity) {
             <input
               id=\"neighborhood-input\"
               type=\"text\"
-              name=\"customer-address-neighborhood\"
+              name=\"addressNeighborhood\"
               placeholder=\"Digite o bairro\"
               class=\"standard-input\"
               required
@@ -107,7 +107,7 @@ function createAddressForm($addressQuantity) {
             <input
               id=\"complement-input\"
               type=\"text\"
-              name=\"customer-address-complement\"
+              name=\"addressComplement\"
               placeholder=\"Complemento\"
               class=\"standard-input\"
               required
@@ -122,13 +122,13 @@ function createAddressForm($addressQuantity) {
             <img 
               class=\"standard-input-icon\" 
               src=\"./../../assets/map-icon.svg\"
-              alt=\"Idade do cliente\"
+              alt=\"CEP do cliente\"
             >
             <input
               id=\"zip-code-input\"
               type=\"text\"
               placeholder=\"Digite o CEP\"
-              name=\"customer-address-zip-code\"
+              name=\"addressZipCode\"
               class=\"standard-input customer-birthday\"
             >
           </div>
@@ -148,7 +148,7 @@ function createAddressForm($addressQuantity) {
             <input
               id=\"city-input\"
               type=\"text\"
-              name=\"customer-address-city\"
+              name=\"addressCity\"
               placeholder=\"Digite o nome da rua\"
               class=\"standard-input\"
               required
@@ -167,7 +167,7 @@ function createAddressForm($addressQuantity) {
             >
             <input
               id=\"state-input\"
-              name=\"customer-address-state\"
+              name=\"addressState\"
               type=\"text\"
               placeholder=\"Estado\"
               class=\"standard-input\"

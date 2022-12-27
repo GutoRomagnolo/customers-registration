@@ -1,0 +1,1 @@
+createPrimaryButton('CRIAR CONTA', 'sign-up-button', '', 'submit', 'create-account-button-container');

@@ -36,7 +36,7 @@ label {
 }
 
 .primary-button {
-  margin: 0 1.9rem 2rem 0;
+  margin: 0 0 1rem 0;
 }
 
 .register-form {
@@ -180,10 +180,6 @@ input[type="date" i] {
   border-radius: 50%;
   border: solid #000 0.1rem;
   margin-left: 0.3rem;
-}
-
-.unitary-new-address {
-  margin-bottom: 1rem;
 }
 
 .success-message {

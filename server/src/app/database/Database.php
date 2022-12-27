@@ -20,13 +20,19 @@ class Database {
     }
   }
 
-  public function createDatabase($databaseConfig) {
+  public function createDatabase(): void {
+    global $databaseConfig;
+
     $createDatabase = "CREATE DATABASE IF NOT EXISTS $databaseConfig->name";
     $this->dbConnection->exec($createDatabase);
     $this->dbConnection->exec("USE $databaseConfig->name");
+
+    $this->createUsersTable();
+    $this->createCustomersTable();
+    $this->createAddressesTable();
   }
 
-  public function createUsersTable() {
+  public function createUsersTable(): void {
     $usersTable = "CREATE TABLE IF NOT EXISTS users(
       id INT NOT NULL AUTO_INCREMENT,
       user_name VARCHAR(100) NOT NULL,
@@ -38,7 +44,7 @@ class Database {
     $this->dbConnection->exec($usersTable);
   }
 
-  public function createCustomersTable() {
+  public function createCustomersTable(): void {
     $customersTable = "CREATE TABLE IF NOT EXISTS customers(
       id INT NOT NULL AUTO_INCREMENT,
       customer_name  INT NOT NULL,
@@ -52,7 +58,7 @@ class Database {
     $this->dbConnection->exec($customersTable);
   }
 
-  public function createAddressesTable() {
+  public function createAddressesTable(): void {
     $addressesTable = "CREATE TABLE IF NOT EXISTS addresses(
       id INT NOT NULL AUTO_INCREMENT,
       address_name VARCHAR(100) NOT NULL,

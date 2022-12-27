@@ -10,4 +10,10 @@
   background-color: #fff;
   color: #d21f3c;
   font-weight: 600;
+  transition: all 0.15s ease-in-out;
+}
+
+.secundary-button:hover {
+  background-color: #d21f3c;
+  color: #fff;
 }

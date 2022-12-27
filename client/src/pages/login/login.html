@@ -10,10 +10,13 @@ require_once './../../components/secundary-button/secundary-button.php';
   <title>SCD - Cadastro de clientes</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./sign-up.css" rel="stylesheet">
+  <link href="./login.css" rel="stylesheet">
   <link href="./../../components/primary-button/primary-button.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="./../../assets/document-icon.svg">
+  <script src="./../../components/primary-button/primary-button.js"></script>
+  <script src="./../../components/secundary-button/secundary-button.js"></script>
+  <script src="./login.js"></script>
 </head>
 
 <body>
@@ -26,18 +29,8 @@ require_once './../../components/secundary-button/secundary-button.php';
       <div class="form-content">
         <div class="login-form-container">
           <div class="login-form-header">
-            <label>CRIAR CONTA</label>
+            <label>FAZER LOGIN</label>
             <hr class="horizontal-line">
-          </div>
-          <div class="standard-input-container">
-            <label for="user-name-input">
-              <span>NOME</span>
-            </label>
-            <div class="input-icon-container">
-              <img class="standard-input-icon" src="./../../assets/customer-icon.svg" alt="Nome do usuário">
-              <input id="user-name-input" name="userName" type="text" placeholder="Digite seu nome"
-                class="standard-input" required>
-            </div>
           </div>
           <div class="standard-input-container">
             <label for="user-email-input">
@@ -45,7 +38,7 @@ require_once './../../components/secundary-button/secundary-button.php';
             </label>
             <div class="input-icon-container">
               <img class="standard-input-icon" src="./../../assets/mail-icon.svg" alt="Email do usuário">
-              <input id="user-email-input" name="userEmail" type="email" placeholder="Digite seu e-mail"
+              <input id="user-email-input" name="userEmail" type="email" placeholder="Digite o e-mail"
                 class="standard-input" required>
             </div>
           </div>
@@ -55,21 +48,18 @@ require_once './../../components/secundary-button/secundary-button.php';
             </label>
             <div class="input-icon-container">
               <img class="standard-input-icon" src="./../../assets/password-icon.svg" alt="Senha do usuário">
-              <input id="user-password-input" name="userPassword" type="password" placeholder="Digite sua senha"
+              <input id="user-email-input" name="userPassword" type="email" placeholder="Digite a senha"
                 class="standard-input" required>
             </div>
           </div>
-          <div class="standard-input-container">
-            <label for="user-email-input">
-              <span>CONFIRME A SENHA</span>
-            </label>
-            <div class="input-icon-container">
-              <img class="standard-input-icon" src="./../../assets/password-icon.svg" alt="Confirmação de senha">
-              <input id="user-confirm-password-input" type="password" placeholder="Digite novamente sua senha"
-                class="standard-input" required>
-            </div>
+          <div class="primary-button-container" id="login-button-container"></div>
+        </div>
+        <div class="create-account-container">
+          <div class="create-account-header">
+            <hr class="horizontal-line">
+            <label>NOVO POR AQUI?</label>
           </div>
-          <?php createPrimaryButton('CRIAR CONTA', 'sign-up-button', '', 'submit'); ?>
+          <div class="primary-button-container" id="sign-up-button-container"></div>
         </div>
       </div>
     </form>
@@ -83,7 +73,6 @@ require_once './../../components/secundary-button/secundary-button.php';
       </a>
     </footer>
   </div>
-  <script src="./login.js"></script>
 </body>
 
 </html>

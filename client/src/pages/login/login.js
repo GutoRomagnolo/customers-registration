@@ -17,7 +17,9 @@ const validateFormInputs = (formInputs) => {
 }
 
 const redirectCreateAccount = () => {
-  window.open('./../sign-up/sign-up.php', "_self")
+  window.open('./../sign-up/sign-up.php', "_self");
 }
 
 startInputListeners();
+createPrimaryButton('ENTRAR', 'login-button', '', 'submit', 'login-button-container');
+createPrimaryButton('CRIAR CONTA', 'redirect-create-account-button', 'redirectCreateAccount()', 'button','sign-up-button-container');

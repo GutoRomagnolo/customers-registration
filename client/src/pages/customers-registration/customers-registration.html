@@ -1,8 +1,3 @@
-<?php
-  require_once './../../components/primary-button/primary-button.php';
-  require_once './../../components/secundary-button/secundary-button.php';
-?>
-
 <!DOCTYPE html>
 <html lang="pt">
   <head>
@@ -19,10 +14,14 @@
       rel="stylesheet"
     >
     <link rel="icon" type="image/x-icon" href="./../../assets/document-icon.svg">
+    <script src="./../../components/primary-button/primary-button.js"></script>
+    <script src="./../../components/secundary-button/secundary-button.js"></script>
+    <script src="./../../components/addresses-form/addresses-form.js"></script>
+    <script src="./../../components/standard-header/standard-header.js"></script>
   </head>
 
   <body>
-    <?php require_once './../../components/standard-header/standard-header.php' ?>
+    <header id="customers-registration-header"></header>
     <div class="main-container" id="main-container">
       <form
         id="register-form"
@@ -159,8 +158,8 @@
               </button>
             </div>
           </div>
+          <div class="primary-button-container" id="register-customer-button-container"></div>
         </div>
-        <?php createPrimaryButton('CADASTRAR', 'submit-form-button', '', 'submit');?>
       </form>
       <footer class="footer-container">
         <div class="footer-text">
@@ -172,6 +171,6 @@
         </a>
       </footer>
     </div>
-    <script src="./customers-registration.js"></script>
   </body>
+  <script src="./customers-registration.js"></script>
 </html>

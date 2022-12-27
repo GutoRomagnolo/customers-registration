@@ -1,24 +1,26 @@
 const registerForm = document.getElementById('register-form');
 const newAddressSpot = document.getElementById('new-address-spot');
-const submitButton = document.getElementById('primary-button');
 const mainContainer = document.getElementById('main-container');
 let addressQuantity = 0;
 
-const createNewAddressContainer = async () => {
+const primaryButtonAttributes = {
+  id: 'submit-form-button',
+  type: 'submit',
+  containerId: 'register-customer-button-container',
+  clickFunction: '',
+  insiderText: 'CADASTRAR'
+}
+
+const runInitialFunctions = () => {
+  createPrimaryButton(primaryButtonAttributes);
+  startInputListeners();
+  createStandardHeader();
+}
+
+const createNewAddressContainer = () => {
   addressQuantity++;
-  const addressFormResponse = await fetch('./../../components/addresses-form/addresses-form.php', {
-    method: 'POST',
-    body: JSON.stringify({ 
-      'addressQuantity': `${addressQuantity}`
-    })
-  })
 
-  const newAddressContainer = document.createElement('div');
-  newAddressContainer.classList.add('unitary-new-address');
-  newAddressContainer.innerHTML += await addressFormResponse.text();
-
-  listenExpandAddressEvents(newAddressContainer);
-  newAddressSpot.appendChild(newAddressContainer);
+  createAddressForm(addressQuantity, 'new-address-spot');
   startInputListeners();
 }
 
@@ -42,6 +44,7 @@ const submitRegisterForm = async (event) => {
 };
 
 const validateFormInputs = (formInputs) => {
+  submitButton = document.getElementById(primaryButtonAttributes.id);
   const formIsValid = formInputs.every(input => input.value)
   formIsValid
     ? submitButton.removeAttribute('disabled')
@@ -70,24 +73,4 @@ const startInputListeners = () => {
   })
 }
 
-const listenExpandAddressEvents = newAddressContainer => {
-  const minimizedAddressTitle = newAddressContainer.querySelector('.minimized-address-title');
-
-  minimizedAddressTitle.addEventListener('click', () => {
-    expandAddressContainer(minimizedAddressTitle, newAddressContainer);
-  })
-}
-
-const expandAddressContainer = (minimizedAddressTitle, addressContainer) => {
-  const addressContent = addressContainer.querySelector('.address-content-expanded');
-  const expandIconSource = addressContainer.querySelector('.expand-icon').src;
-
-  expandIconSource.indexOf('expand-icon.svg') != -1
-    ? addressContainer.querySelector('.expand-icon').src = './../../assets/minimize-icon.svg'
-    : addressContainer.querySelector('.expand-icon').src = './../../assets/expand-icon.svg'
-
-  addressContent.classList.toggle('hidden-element');
-  minimizedAddressTitle.classList.toggle('full-border-element');
-}
-
-startInputListeners();
+runInitialFunctions();

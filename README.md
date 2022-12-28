@@ -24,6 +24,11 @@ Caso queira ter uma visão melhor das tabelas, recomendo o uso de softwares de g
 
 ## Iniciando a navegação
 
+Para iniciar a navegação, basta acessar a URL 
+```sh
+localhost:3000/index.html
+```
+Com isso, haverá a criação do banco de dados e o redirecionamento para a página de criação de clientes, pois a de login não possui conexão com o backend ainda :/
 
 
 ## A fazer

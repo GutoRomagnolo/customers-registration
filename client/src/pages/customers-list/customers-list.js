@@ -18,8 +18,8 @@ const getCustomersRegister = async () => {
 
 const generateRegisterList = () => {
   customersRegister.forEach((customer) => {
-    customerListContainer.innerHTML += 
-      `<div class="register-container">
+    customerListContainer.innerHTML += `
+      <div class="register-container">
         <div class="standard-container">
           <h3>NOME</h3>
           <h4>${customer.customer_name}</h4>
@@ -56,25 +56,20 @@ const generateRegisterList = () => {
             <hr class="horizontal-line">
           </div>
         </div>
-      </div>`;
+        <div class="edit-user-button-container">
+          <button class="edit-user-button" type="button" onclick="openEditModal(${customer.id})">
+            <p>EDITAR</p>
+            <img
+              class="standard-input-icon"
+              src="./../../assets/edit-icon.svg"
+              alt="Editar cliente"
+            >
+          </button>
+        </div>
+      </div>
+    `;
   });
 };
-
-// const sortCustomersRegisterByIdentifer = customersRegisterToSort => {
-//   return customersRegisterToSort.sort((nextCustomer, previousCustomer) => {
-//     if (nextCustomer.identifier > previousCustomer.identifier) {
-//       return 1;
-//     } else if (nextCustomer.identifier === previousCustomer.identifier) {
-//       if (nextCustomer.name > previousCustomer.name) {
-//         return 1;
-//       } else {
-//         return -1;
-//       }
-//     } else {
-//       return -1;
-//     }
-//   });
-// }
 
 getCustomersRegister();
 createStandardHeader();

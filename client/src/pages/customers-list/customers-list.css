@@ -29,6 +29,10 @@ h4 {
   margin: 0;
 }
 
+p {
+  margin: 0;
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
@@ -45,6 +49,12 @@ h4 {
   justify-content: center;
 }
 
+.standard-input-icon {
+  padding-left: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .register-container {
   display: flex;
   padding: 1rem;
@@ -52,10 +62,33 @@ h4 {
   flex-direction: column;
   width: 30%;
   background: #f9f9f9;
-  border: 0.3rem solid transparent;
+  border: 0.2rem solid #E35214;
   border-radius: 0.5rem;
   color: #313638;
-  border-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%) 1; 
+}
+
+.edit-user-button-container {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 1rem;
+}
+
+.edit-user-button {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.57rem;
+  font-family: 'Roboto';
+  border-radius: 0.3rem;
+  border: 0;
+  background-color: #E35214;
+  transition: all 0.15s ease-in-out;
+  color: #fff;
+}
+
+.edit-user-button:hover {
+  background-color: #ff8b1f;
 }
 
 .three-row {

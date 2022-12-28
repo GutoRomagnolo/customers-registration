@@ -1,5 +1,5 @@
 <?php
-require_once './../../../config.php';
+include_once('./../../../app/database/DatabaseController.php');
 
 spl_autoload_register(function ($className) {
   if (file_exists("{$className}.php")) {
@@ -7,12 +7,10 @@ spl_autoload_register(function ($className) {
   }
 });
 
-use src\App\Utils\Utils;
 use src\App\Controllers\DatabaseController;
 
-Utils::buildRoute("/database/create-database", "POST", function () {
-  header("content-type: application/json");
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $database = new DatabaseController();
   $database->newDatabase();
-});
+}
 ?>

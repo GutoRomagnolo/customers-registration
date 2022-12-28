@@ -1,5 +1,6 @@
 <?php
 namespace src\App\Controllers;
+include_once('./../../../app/users/Users.php');
 
 use src\App\Models\Database;
 

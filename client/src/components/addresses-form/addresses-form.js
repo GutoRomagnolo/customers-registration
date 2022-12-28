@@ -1,10 +1,4 @@
 const createAddressForm = (addressQuantity, containerId) => {
-  const fixedSecundaryButtonAttributes = {
-    insiderText: 'REMOVER',
-    clickFunction: 'removeAddress()',
-    containerId: `remove-address-button-container-${addressQuantity}`
-  };
-
   const addressFormTemplate = `
     <div class="minimized-address-title full-border-element">
       <span>Endereço ${addressQuantity}</span>
@@ -179,17 +173,24 @@ const createAddressForm = (addressQuantity, containerId) => {
     </div>
   `;
 
-  const newUnitaryAddressContainer = document.createElement('div');
-  newUnitaryAddressContainer.classList.add('unitary-new-address');
-  newUnitaryAddressContainer.innerHTML +=addressFormTemplate;
+  const newUnitaryAddressForm = document.createElement('form');
+  newUnitaryAddressForm.classList.add('unitary-new-address');
+  newUnitaryAddressForm.setAttribute("id", `address-form-${addressQuantity}`);
+  newUnitaryAddressForm.innerHTML += addressFormTemplate;
+
+  const fixedSecundaryButtonAttributes = {
+    insiderText: 'REMOVER',
+    clickFunction: `removeAddress('address-form-${addressQuantity}')`,
+    containerId: `remove-address-button-container-${addressQuantity}`
+  };
 
   const generalAddressesContainer = document.getElementById(containerId);
-  generalAddressesContainer.appendChild(newUnitaryAddressContainer);
+  generalAddressesContainer.appendChild(newUnitaryAddressForm);
 
   createSecundaryButton(fixedSecundaryButtonAttributes);
-  listenExpandAddressEvents(newUnitaryAddressContainer);
+  listenExpandAddressEvents(newUnitaryAddressForm);
 
-  return newUnitaryAddressContainer
+  return newUnitaryAddressForm
 }
 
 const listenExpandAddressEvents = newUnitaryAddressContainer => {
@@ -210,4 +211,27 @@ const expandAddressContainer = (minimizedAddressTitle, unitaryAddressContainer) 
 
   addressContent.classList.toggle('hidden-element');
   minimizedAddressTitle.classList.toggle('full-border-element');
+}
+
+const removeAddress = addressToRemoveId => {
+  const addressToRemove = document.getElementById(addressToRemoveId)
+  addressToRemove.remove();
+}
+
+const submitAddresses = async (customerCPF) => {
+  for (let index = 0; index < addressQuantity; index++) {
+    if (document.getElementById(`address-form-${index + 1}`)) {
+      const addressFormElement = document.getElementById(`address-form-${index + 1}`);
+      const addressFormToSubmit = new FormData(addressFormElement);
+      addressFormToSubmit.append('customerCPF', customerCPF);
+
+      await fetch(serverPaths.addressesResource, {
+        method: 'POST',
+        body:  addressFormToSubmit
+      })
+
+      addressFormElement.reset();
+      startInputListeners();
+    }
+  }
 }

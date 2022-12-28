@@ -1,5 +1,6 @@
 <?php
 namespace src\App\Controllers;
+include_once('./../../../app/addresses/Addresses.php');
 
 use src\App\Models\Addresses;
 

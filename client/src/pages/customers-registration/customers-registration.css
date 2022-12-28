@@ -39,7 +39,7 @@ label {
   margin: 0 0 1rem 0;
 }
 
-.register-form {
+.form-container {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -95,6 +95,7 @@ label {
   flex-direction: row;
 }
 
+
 .standard-input {
   padding: 0.5rem 0.5rem 0.5rem 3rem;
   color: #000;
@@ -122,6 +123,12 @@ input[type="date" i] {
   display: flex;
   flex-direction: column;
   width: 30%;
+}
+
+.two-inputs {
+  display: flex;
+  flex-direction: column;
+  width: 47%;
 }
 
 .input-icon-container {
@@ -158,19 +165,18 @@ input[type="date" i] {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   padding: 0.40rem;
   font-family: 'Roboto';
   border-radius: 0.3rem;
   border: solid #000 0.1rem;
   font-size: 0.9rem;
-  background-color: #7e7e7e1a;
+  background-color: #c2c2c21a;
   font-weight: 600;
   transition: all 0.1s ease-in-out;
 }
 
 .add-new-address-button:hover {
-  background-color: #c2c2c21a;
+  background-color: #7e7e7e1a;
   transform:scale(1.009);
 }
 

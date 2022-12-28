@@ -1,5 +1,6 @@
 <?php
 namespace src\App\Controllers;
+include_once('./../../../app/customers/Customers.php');
 
 use src\App\Models\Customers;
 

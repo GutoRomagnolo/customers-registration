@@ -1,13 +1,11 @@
 const registerForm = document.getElementById('register-form');
-const newAddressSpot = document.getElementById('new-address-spot');
-const mainContainer = document.getElementById('main-container');
 let addressQuantity = 0;
 
 const primaryButtonAttributes = {
   id: 'submit-form-button',
-  type: 'submit',
+  type: 'button',
   containerId: 'register-customer-button-container',
-  clickFunction: '',
+  clickFunction: 'submitAllPageForms()',
   insiderText: 'CADASTRAR'
 }
 
@@ -24,24 +22,33 @@ const createNewAddressContainer = () => {
   startInputListeners();
 }
 
-const submitRegisterForm = async (event) => {
-  event.preventDefault();
+const submitPersonalInformations = async () => {
+  const personalInformationsForm = new FormData(registerForm)
+  await fetch(serverPaths.customersResource, {
+    method: 'POST',
+    body: personalInformationsForm
+  });
+
+  registerForm.reset();
+  startInputListeners();
+
+  return personalInformationsForm.get("customerCPF");
+};
+
+const submitAllPageForms = async () => {
   try {
-    await fetch('customers-registration.php', {
-      method: 'POST',
-      body: new FormData(registerForm)
-    });
+    const customerCPF = await submitPersonalInformations();
+    await submitAddresses(customerCPF);
 
     const successMessage = 'Cliente registrado com sucesso!';
     invokeRegisterResultMessage('success', successMessage);
-    registerForm.reset();
-    startInputListeners();
-  } catch (error) {
+  }
+  catch (error) {
     const errorMessage = 'Não foi possível cadastrar o cliente!';
     invokeRegisterResultMessage('fail', errorMessage);
     console.log("Um erro ocorreu ao cadastrar cliente: ", error);
   }
-};
+}
 
 const validateFormInputs = (formInputs) => {
   submitButton = document.getElementById(primaryButtonAttributes.id);

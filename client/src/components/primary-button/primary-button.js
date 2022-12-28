@@ -1,5 +1,4 @@
 const createPrimaryButton = (buttonAttributes) => {
-  console.log('buttonAttributes', buttonAttributes)
   primaryButtonTemplate = `
     <button
       id=${buttonAttributes.id}

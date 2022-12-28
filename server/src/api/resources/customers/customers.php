@@ -1,5 +1,9 @@
 <?php
-require_once './../../../config.php';
+include_once('./../../../app/customers/CustomersController.php');
+include_once('./../../../app/addresses/AddressesController.php');
+
+use src\App\Controllers\AddressesController;
+use src\App\Controllers\CustomersController;
 
 spl_autoload_register(function ($className) {
   if (file_exists("{$className}.php")) {
@@ -7,18 +11,7 @@ spl_autoload_register(function ($className) {
   }
 });
 
-use src\App\Utils\Utils;
-use src\App\Controllers\CustomersController;
-use src\App\Controllers\AddressesController;
-
-
-Utils::buildRoute("/customers/get-all", "GET", function () {
-  header("content-type: application/json");
-  $customers = new CustomersController();
-  echo json_encode($customers->getAllCustomers());
-});
-
-Utils::buildRoute("/customers/new-customer", "POST", function () {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $customers = new CustomersController();
   $customers->setCustomerEmail($_POST["customerEmail"]);
   $customers->setCustomerName($_POST["customerName"]);
@@ -27,15 +20,9 @@ Utils::buildRoute("/customers/new-customer", "POST", function () {
   $customers->setCustomerRG($_POST["customerRG"]);
   $customers->setCustomerPhoneNumber($_POST["customerPhoneNumber"]);
   echo $customers->newCustomer();
-});
+}
 
-Utils::buildRoute("/customers/get-one/:customerId", "GET", function () {
-  header("content-type: application/json");
-  $customers = new CustomersController();
-  echo json_encode($customers->getOneCustomer($_GET["customerId"]));
-});
-
-Utils::buildRoute("/customers/update/:customerId", "POST", function () {
+if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
   $customers = new CustomersController();
   $customers->setCustomerEmail($_POST["customerEmail"]);
   $customers->setCustomerName($_POST["customerName"]);
@@ -44,13 +31,24 @@ Utils::buildRoute("/customers/update/:customerId", "POST", function () {
   $customers->setCustomerRG($_POST["customerRG"]);
   $customers->setCustomerPhoneNumber($_POST["customerPhoneNumber"]);
   echo $customers->updateCustomer($_GET["customerId"]);
-});
+}
 
-Utils::buildRoute("/customers/delete/:customerId", "GET", function () {
+if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
   $addresses = new AddressesController();
   $customers = new CustomersController();
 
-  $addresses->deleteAddressByCustomerId($_GET["customerId"]);
-  echo $customers->deleteCustomer($_GET["customerId"]);
-});
+  $addresses->deleteAddressByCustomerId($_DELETE["customerId"]);
+  echo $customers->deleteCustomer($_DELETE["customerId"]);
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && !isset($_GET['customerId'])) {
+  $customers = new CustomersController();
+  echo json_encode($customers->getAllCustomers());
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['customerId'])) {
+  $customers = new CustomersController();
+  echo json_encode($customers->getOneCustomer($_GET["customerId"]));
+}
+
 ?>

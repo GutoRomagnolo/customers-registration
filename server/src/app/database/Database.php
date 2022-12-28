@@ -1,8 +1,7 @@
 <?php
 namespace src\App\Models;
-
-require_once './../../config.php';
 use PDO;
+include_once('config.php');
 
 class Database {
   private $dbConnection;
@@ -12,7 +11,7 @@ class Database {
 
     try {
       $this->dbConnection = new PDO(
-        "mysql:dbname={$databaseConfig->name};host={$databaseConfig->host}", $databaseConfig->user, $databaseConfig->password
+        "mysql:host=".$databaseConfig['hostname'].";port=".$databaseConfig['port'], $databaseConfig['user'], $databaseConfig['password']
       );
       $this->dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (\PDOException $exception) {
@@ -23,9 +22,9 @@ class Database {
   public function createDatabase(): void {
     global $databaseConfig;
 
-    $createDatabase = "CREATE DATABASE IF NOT EXISTS $databaseConfig->name";
+    $createDatabase = "CREATE DATABASE IF NOT EXISTS $databaseConfig[dbName]";
     $this->dbConnection->exec($createDatabase);
-    $this->dbConnection->exec("USE $databaseConfig->name");
+    $this->dbConnection->exec("USE $databaseConfig[dbName]");
 
     $this->createUsersTable();
     $this->createCustomersTable();
@@ -38,7 +37,7 @@ class Database {
       user_name VARCHAR(100) NOT NULL,
       email VARCHAR(50) NOT NULL,
       user_password VARCHAR(255) NOT NULL,
-      PRIMARY KEY(id)
+      PRIMARY KEY (id)
     )";
 
     $this->dbConnection->exec($usersTable);
@@ -47,12 +46,13 @@ class Database {
   public function createCustomersTable(): void {
     $customersTable = "CREATE TABLE IF NOT EXISTS customers(
       id INT NOT NULL AUTO_INCREMENT,
-      customer_name  INT NOT NULL,
+      customer_name  VARCHAR(250) NOT NULL,
       birthday DATE NOT NULL,
-      cpf VARCHAR(20) NOT NULL,
+      cpf VARCHAR(20) NOT NULL UNIQUE,
       rg VARCHAR(20) NOT NULL,
+      email VARCHAR(250),
       phone_number VARCHAR(50) NOT NULL,
-      PRIMARY KEY(id)
+      PRIMARY KEY (id)
     )";
 
     $this->dbConnection->exec($customersTable);
@@ -62,7 +62,7 @@ class Database {
     $addressesTable = "CREATE TABLE IF NOT EXISTS addresses(
       id INT NOT NULL AUTO_INCREMENT,
       address_name VARCHAR(100) NOT NULL,
-      customer_id INT NOT NULL,
+      customer_cpf VARCHAR(20) NOT NULL,
       street  VARCHAR(100) NOT NULL,
       address_number INT NOT NULL,
       neighborhood VARCHAR(100) NOT NULL,
@@ -70,14 +70,18 @@ class Database {
       zip_code VARCHAR(20) NOT NULL,
       city VARCHAR(50) NOT NULL,
       address_state TEXT NOT NULL,
-      PRIMARY KEY(id),
-      FOREIGN KEY(customer_id) REFERENCES customers(id)
+      PRIMARY KEY (id),
+      
+      FOREIGN KEY (customer_cpf) REFERENCES customers(cpf)
     )";
 
     $this->dbConnection->exec($addressesTable);
   }
 
   public function getConnection(): object {
+    global $databaseConfig;
+
+    $this->dbConnection->exec("USE $databaseConfig[dbName]");
     return $this->dbConnection;
   }
 }

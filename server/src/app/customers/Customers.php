@@ -1,5 +1,6 @@
 <?php
 namespace src\App\Models;
+include_once('./../../../app/database/Database.php');
 
 use PDO;
 use FFI\Exception;
@@ -87,7 +88,7 @@ class Customers extends Database {
 
       $createCustomerStatement = $this->appDatabase->prepare(
         "INSERT INTO customers (
-          customer_email,
+          email,
           customer_name,
           birthday,
           cpf,
@@ -156,7 +157,7 @@ class Customers extends Database {
 
       $updateCustomerStatement = $this->appDatabase->prepare(
         "UPDATE clients SET
-          customer_email = :customerEmail,
+          email = :customerEmail,
           customer_name = :customerName,
           birthday = :customerBirthday,
           cpf = :customerCPF,

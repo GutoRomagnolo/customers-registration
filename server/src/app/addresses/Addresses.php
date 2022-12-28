@@ -1,5 +1,6 @@
 <?php
 namespace src\App\Models;
+include_once('./../../../app/database/Database.php');
 
 use FFI\Exception;
 use PDO;
@@ -8,7 +9,7 @@ use src\App\Models\Database;
 class Addresses extends Database {
   private $appDatabase;
   private $addressId;
-  private $customerId;
+  private $customerCPF;
   private $addressName;
   private $street;
   private $number;
@@ -31,13 +32,13 @@ class Addresses extends Database {
     $this->addressId = $addressId;
   }
 
-  public function getCustomerId(): int
+  public function getCustomerCPF(): int
   {
-    return $this->customerId;
+    return $this->customerCPF;
   }
 
-  public function setCustomerId(int $customerId): void {
-    $this->customerId = $customerId;
+  public function setCustomerCPF(int $customerCPF): void {
+    $this->customerCPF = $customerCPF;
   }
 
   public function getAddressName(): string {
@@ -115,22 +116,22 @@ class Addresses extends Database {
       $city = $this->getCity();
       $addressState = $this->getAddressState();
       $zipCode = $this->getZipCode();
-      $customerId = $this->getCustomerId();
+      $customerCPF = $this->getCustomerCPF();
 
       $createAddressStatement = $this->appDatabase->prepare(
         "INSERT INTO addresses (
           address_name,
-          customer_id,
+          customer_cpf,
           street,
           address_number,
           neighborhood,
           complement, 
-          zip_code
+          zip_code,
           city, 
           address_state
         ) VALUES (
           :addressName,
-          :customerId,
+          :customerCPF,
           :street,
           :addressNumber,
           :neighborhood,
@@ -142,7 +143,7 @@ class Addresses extends Database {
       );
 
       $createAddressStatement->bindParam(":addressName", $addressName, PDO::PARAM_STR);
-      $createAddressStatement->bindParam(":customerId", $customerId, PDO::PARAM_INT);
+      $createAddressStatement->bindParam(":customerCPF", $customerCPF, PDO::PARAM_INT);
       $createAddressStatement->bindParam(":street", $street, PDO::PARAM_STR);
       $createAddressStatement->bindParam(":addressNumber", $number, PDO::PARAM_STR);
       $createAddressStatement->bindParam(":neighborhood", $neighborhood, PDO::PARAM_STR);
@@ -207,7 +208,7 @@ class Addresses extends Database {
 
   public function updateAddress($addressId): string {
     $addressName = $this->getAddressName();
-    $customerId = $this->getCustomerId();
+    $customerCPF = $this->getCustomerCPF();
     $street = $this->getStreet();
     $addressNumber = $this->getNumber();
     $complement = $this->getComplement();
@@ -220,7 +221,7 @@ class Addresses extends Database {
       $updateAddressStatement = $this->appDatabase->prepare(
         "UPDATE addresses SET
           address_name = :addressName
-          customer_id = :customerId
+          customer_cpf = :customerCPF
           street = :street,
           address_number = :addressNumber,
           complement = :complement,
@@ -232,7 +233,7 @@ class Addresses extends Database {
       );
 
       $updateAddressStatement->bindParam(":addressName", $addressName, PDO::PARAM_STR);
-      $updateAddressStatement->bindParam(":customerId", $customerId, PDO::PARAM_INT);
+      $updateAddressStatement->bindParam(":customerCPF", $customerCPF, PDO::PARAM_INT);
       $updateAddressStatement->bindParam(":street", $street, PDO::PARAM_STR);
       $updateAddressStatement->bindParam(":addressNumber", $addressNumber, PDO::PARAM_STR);
       $updateAddressStatement->bindParam(":complement", $complement, PDO::PARAM_STR);

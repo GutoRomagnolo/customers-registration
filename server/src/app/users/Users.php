@@ -1,5 +1,6 @@
 <?php
 namespace src\App\Models;
+include_once('./../../../app/database/Database.php');
 
 use FFI\Exception;
 use PDO;
@@ -138,7 +139,7 @@ class Users extends Database
     }
   }
 
-  public function loginUser(): array|string {
+  public function loginUser() {
     try {
       $loginUserQuery = $this->appDatabase->prepare(
         "SELECT * FROM users WHERE email = :email AND user_password = :userPassword"

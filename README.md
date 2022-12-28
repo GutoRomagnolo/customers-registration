@@ -27,6 +27,10 @@ Caso queira ter uma visão melhor das tabelas, recomendo o uso de softwares de g
 
 
 ## A fazer
-- Melhor estruturação da API.
-- Rotas de acesso.
-- Máscaras de formatação em todos os campos.
+- Melhor estruturação da API;
+- Rotas de acesso;
+- Máscaras de formatação em todos os campos;
+- Login e autenticação;
+- Sessões e criação de conta;
+- Sanitização dos campos de cadastro no backend;
+- Deletar/editar clientes e endereços.
